@@ -7,9 +7,13 @@ import { Navigation } from 'components/Navigation/Navigation';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { useAuth } from 'hooks/useAuth';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 
 export const Header = () => {
-//   const { isLoggedIn } = useAuth();
+   
+  const { isLoggedIn } = useAuth();
 
   return (
     <AppBar
@@ -41,8 +45,34 @@ export const Header = () => {
         >
         
         </Typography>
-        {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
+      {/* если залогинен ->UserMenu, нет? ->AuthNav*/}
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </Toolbar>
     </AppBar>
   );
 };
+
+// import { AuthNav } from 'components/AuthNav/AuthNav';
+// import { Navigation } from 'components/Navigation/Navigation';
+// import { UserMenu } from 'components/UserMenu/UserMenu';
+// import { useAuth } from '../../hooks/useAuth';
+// import { Box, Flex, Spacer } from '@chakra-ui/react';
+
+// export const Header = () => {
+//   const { isLoggedIn } = useAuth();
+
+//   return (
+//     <Box
+//       bgGradient="linear(to-l, #7928CA, #FF0080)"
+//       color="white"
+//       py={4}
+//       px={8}
+//     >
+//       <Flex alignItems="center">
+//         <Navigation />
+//         <Spacer />
+//         {isLoggedIn ? <UserMenu /> : <AuthNav />}
+//       </Flex>
+//     </Box>
+//   );
+// };
