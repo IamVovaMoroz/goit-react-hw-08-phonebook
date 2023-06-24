@@ -33,7 +33,7 @@ export const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
    
-    console.log('Password, Email, Name:', {name, password, email });
+    console.log('Password, Email, Name:', {name, email, password  });
     dispatch(
       register({
         name,

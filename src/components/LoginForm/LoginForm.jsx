@@ -77,6 +77,7 @@ import React, { useState } from 'react';
 // import { register } from 'redux/auth/operations';
 import css from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
+import { logIn } from 'redux/auth/operations';
 
 export const LoginForm = () => {
   // const dispatch = useDispatch();
@@ -90,16 +91,9 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('Email:', email);
-    // console.log('Password:', password);
-    console.log('Password, Email:', {password, email});
-    // dispatch(
-    //   register({
-    //     name,
-    //     email,
-    //     password,
-    //   })
-    // );
+   
+    console.log('Password, Email:', {email, password });
+    logIn({email, password})
 
     setEmail('');
     setPassword('');
