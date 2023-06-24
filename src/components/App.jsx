@@ -26,10 +26,10 @@ export const App = () => {
           
         </NavLink>
         <NavLink to="/register" style={{ marginRight: '10px' }}>
-          Register
+         
         </NavLink>
         <NavLink to="/login" style={{ marginRight: '10px' }}>
-          Login
+    
         </NavLink>
         <NavLink to="/contacts" style={{ marginRight: '10px' }}>
         
@@ -43,14 +43,16 @@ export const App = () => {
  
      <Route path="/" element={<Layout />}>
         <Route index element={<HomePage/>} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+       
         <Route path="contacts" element={<ContactsPage />} />
         <Route path="contacts/:id" element={<ContactDetailsPage />} />
         <Route path="info" element={<InfoPage />} />
         {/* <Route path="*" element={<NotFound />} /> */}
        
+
           </Route>
+          <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
       </Routes>
     </div>
   );
