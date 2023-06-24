@@ -29,7 +29,7 @@ export const App = () => {
          
         </NavLink>
         <NavLink to="/login" style={{ marginRight: '10px' }}>
-    
+       
         </NavLink>
         <NavLink to="/contacts" style={{ marginRight: '10px' }}>
         
