@@ -39,7 +39,7 @@ export const Header = () => {
             textAlign: 'center',
           }}
         >
-          {/* My contacts APP */}
+        
         </Typography>
         {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
       </Toolbar>

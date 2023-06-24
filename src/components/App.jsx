@@ -48,11 +48,11 @@ export const App = () => {
         <Route path="contacts/:id" element={<ContactDetailsPage />} />
         <Route path="info" element={<InfoPage />} />
         {/* <Route path="*" element={<NotFound />} /> */}
-       
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
 
           </Route>
-          <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+        
       </Routes>
     </div>
   );

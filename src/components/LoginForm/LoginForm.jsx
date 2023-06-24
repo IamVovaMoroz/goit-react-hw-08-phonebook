@@ -90,9 +90,9 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-
+    // console.log('Email:', email);
+    // console.log('Password:', password);
+    console.log('Password, Email:', {password, email});
     // dispatch(
     //   register({
     //     name,
