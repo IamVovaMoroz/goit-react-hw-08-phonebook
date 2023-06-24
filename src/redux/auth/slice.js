@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './operations';
 
+
 const initialState = {
   user: { name: null, email: null },
   token: null,
@@ -14,7 +15,7 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
       builder
-    //   успешно зарегался
+    //   успешно зарегался, данные сюда прилетают о юзере и о токене сохраняем
         .addCase(register.fulfilled, (state, action) => {
           state.user = action.payload.user;
           state.token = action.payload.token;
