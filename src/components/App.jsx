@@ -118,9 +118,12 @@
 //     </div>
 //   );
 // };
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
+import { useDispatch } from 'react-redux';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
@@ -130,7 +133,18 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 const App = () => {
-  return (
+  // для того чтобы не вылетало с logout, при перезагрузке. 
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+  // Доп запрос и проверка
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+
+  return ( isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <div
       style={{
         height: '100vh',
@@ -160,7 +174,7 @@ const App = () => {
           <Route path="login" element={<Suspense fallback={<div>Loading...</div>}><LoginPage /></Suspense>} />
         </Route>
       </Routes>
-    </div>
+    </div>)
   );
 };
 

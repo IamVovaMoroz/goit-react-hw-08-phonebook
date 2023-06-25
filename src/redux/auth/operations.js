@@ -45,24 +45,26 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
-
+// очищаем аутч хедер при logOut
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
+// операция, чтобы при перезагрузке не скидывало пользователя
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
+    // тут весь стейт 
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
+// если токена нет в редакс стейте, пользовательнь не залогинен - запрос не нужен
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
     try {
+        // если токен есть, добавляем его в заголовок авторизации и делаем запрос
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
       return res.data;
