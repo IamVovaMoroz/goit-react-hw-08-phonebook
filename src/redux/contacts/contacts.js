@@ -1,7 +1,8 @@
+
+
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 
-//  isLoading в true и сбрасываем ошибку
 const handlePending = state => {
   state.isLoading = true;
   state.error = null;

@@ -1,41 +1,54 @@
-// import { useAuth } from 'hooks/useAuth';
-// import { useDispatch } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
-// import { Box, Button, Text } from '@chakra-ui/react';
 
-// export const UserMenu = () => {
-//   const dispatch = useDispatch();
-//   const { user } = useAuth();
-
-//   return (
-//     <Box p={4} display="inline-flex" alignItems="baseline">
-//       <Text fontSize="lg" fontWeight="bold" mb={2}>
-//         Welcome, {user.email}
-//       </Text>
-//       <Button colorScheme="red" ml={2} onClick={() => dispatch(logOut())}>
-//         Log Out
-//       </Button>
-//     </Box>
-//   );
-// };
 
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
-import { Box, Button, Typography } from '@mui/material';
+import styled from 'styled-components';
+
+const UserMenuContainer = styled.div`
+  padding: 4px;
+  display: flex;
+  align-items: center;
+`;
+
+const CenteredContent = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const WelcomeText = styled.p`
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+`;
+
+const LogoutButton = styled.button`
+  font-weight: bold;
+  color: blue;
+  margin-left: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: rgb(41, 14, 68);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+`;
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
   return (
-    <Box p={4} display="inline-flex" alignItems="baseline">
-      <Typography variant="h6" fontWeight="bold" mb={2}>
-        Welcome, {user.email}
-      </Typography>
-      <Button color="error" ml={2} onClick={() => dispatch(logOut())}>
-        Log Out
-      </Button>
-    </Box>
+    <UserMenuContainer>
+      <CenteredContent>
+        <WelcomeText>Welcome, {user.email}</WelcomeText>
+        <LogoutButton onClick={() => dispatch(logOut())}>Log Out</LogoutButton>
+      </CenteredContent>
+    </UserMenuContainer>
   );
 };

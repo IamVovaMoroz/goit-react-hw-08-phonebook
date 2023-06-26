@@ -1,18 +1,18 @@
-import { Suspense } from 'react';
+
+import { AppBar } from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
-import Loader from 'components/Loader';
-// import { Loader } from 'components/Loader';
-import { Header } from 'components/Header/Header';
-// import { ToastContainer } from 'react-toastify';
 
 export const Layout = () => {
   return (
-    <div>
-      <Header />
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
-      {/* <ToastContainer /> */}
+    <div
+      style={{
+        background: 'linear-gradient(to right, #D3D3D3, #FFFF00, #FFC0CB)',
+        minHeight: '100vh',
+        padding: '4px',
+      }}
+    >
+      <AppBar />
+      <Outlet />
     </div>
   );
 };
