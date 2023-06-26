@@ -1,12 +1,21 @@
+
 import React from 'react';
 import { CircularProgress } from '@mui/material';
-import { SpinnerContainer } from './Loader.styled';
+
+const styles = {
+  spinnerContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh', // Высота здесь настраивается в зависимости от ваших требований
+  },
+};
 
 function Loader() {
   return (
-    <SpinnerContainer>
+    <div style={styles.spinnerContainer}>
       <CircularProgress size={60} color="primary" />
-    </SpinnerContainer>
+    </div>
   );
 }
 
