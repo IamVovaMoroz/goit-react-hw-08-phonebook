@@ -8,16 +8,6 @@ import { selectContacts } from 'redux/contacts/selectors';
 import { Button, Input, FormContainer, Form, FormControl, Label } from './ContactForm.styles';
 
 
-
-
-
-
-
-
-
-
-
-
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
